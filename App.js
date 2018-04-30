@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { Router, Scene, Drawer, Actions } from 'react-native-router-flux';
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, View, Image } from 'react-native'
 import Header from './src/Header'
 import BackHeader from './src/BackHeader'
 import Login from './src/Login'
@@ -25,14 +25,31 @@ import TailorsHome from './src/TailorsHome'
 
 
 export default class App extends Component<Props> {
-    async componentWillMount(){
+    state = {
+        loading: true
+    }
+
+    async componentDidMount(){
         if(await AsyncStorage.getItem('token')){
+            this.setState({ loading: false })
             Actions.home()
+        }
+        else {
+            this.setState({ loading: false })
         }
       }
 
 
   render() {
+      if(this.state.loading){
+          return (
+              <View style={{flex: 1}}>
+                <View style={{flex: 1}}>
+                    <Image source={require('./splash.png')} style={{width:'100%', height:'100%'}} />
+                </View>
+              </View>
+          )
+      }
     return (
               <Router>
                   <Scene key='root' navBar={Header} >
