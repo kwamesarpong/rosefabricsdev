@@ -11,6 +11,7 @@ class ProductDetails extends PureComponent {
         quantity: 2 ,
         price: '',
         name: '',
+        desc: '',
         img: ' ',
         id: ''
     }   
@@ -19,6 +20,7 @@ class ProductDetails extends PureComponent {
         this.setState({
             price: this.props.data.price,
             name: this.props.data.name,
+            desc: this.props.data.desc,
             img: this.props.data.img_one,
             id: this.props.data.id
         })
@@ -73,7 +75,7 @@ class ProductDetails extends PureComponent {
     }
 
     render(){
-        const { quantity, price, name, img } = this.state
+        const { quantity, price, name, desc, img } = this.state
         return (
             <View style={{backgroundColor: 'white', height: '100%'}}>
                 <Card containerStyle={styles.container} imageStyle={styles.image}
@@ -83,6 +85,9 @@ class ProductDetails extends PureComponent {
                     </Text>
                     <Text style={{marginBottom: 10, textAlign:'center'}}>
                         Ghc {price}
+                    </Text>
+                    <Text style={{marginBottom: 10, textAlign:'center', color: '#a1a1a1'}}>
+                        {desc}
                     </Text>
                     <View style={{flexDirection:'row', justifyContent:'space-around',paddingTop:'10%', paddingBottom:'10%'}}>
                         <Icon style={{marginLeft: '20%'}} name='ios-remove-circle' onPress={this.onDecrease} />

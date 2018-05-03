@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios'
-import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions } from 'react-native';
+import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux'
 import Header from './Header'
@@ -14,6 +14,7 @@ class Home extends PureComponent {
 
   state = {
     img: ' ',
+    loading: true
   }
 
   async componentDidMount() {
@@ -22,7 +23,10 @@ class Home extends PureComponent {
     const res = await axios.get(url, {headers: {'Devless-token': 'd463354149e3e51dd115ec140819e0a7'}})
     let sliderImage = res.data.payload.results;
     let sliderArray = sliderImage.reverse();
-    this.setState({img:sliderArray[0].img_one})
+    this.setState({
+      img:sliderArray[0].img_one,
+      loading: false
+    })
   }
 
   componentWillMount() {
@@ -63,6 +67,11 @@ makeCall = () => {
 
  render(){
    console.log(this.props.navigation.state.params.name)
+    if(this.state.loading){
+      return (<View style={{alignItems: 'center', paddingTop: '50%', backgroundColor: '#ffffff', height: '100%'}}>
+                <ActivityIndicator size="large" color='red' />
+              </View>)
+    }
     return (
       <View style={{flex:1, backgroundColor:'white'}}>
       {/* { Alert.alert(`Welocome ${this.props.params.name}`)} */}
