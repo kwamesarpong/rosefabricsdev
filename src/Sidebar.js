@@ -9,6 +9,7 @@ class Sidebar extends PureComponent {
 
     state = {
         data: [],
+        firstName: ''
       }
 
     async componentWillMount(){
@@ -17,6 +18,12 @@ class Sidebar extends PureComponent {
         const resReversed = res.data.payload.results.reverse();
         const resSliced = resReversed.slice(0, 5)
         this.setState({ data:resSliced })
+
+        let userFirstname = await AsyncStorage.getItem('first_name')
+        let parsedFirstname = JSON.parse(userFirstname)
+        let stringFirstname = parsedFirstname.toString()
+
+        this.setState({ firstName: stringFirstname })
       }
 
       handleClick = async(data) => {
@@ -47,6 +54,14 @@ class Sidebar extends PureComponent {
     render(){
         return (
             <ScrollView>
+                <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'brown' }}>
+                    <View style={{ width: '30%', paddingTop: 20, paddingBottom: 20, paddingLeft: 20 }}>
+                        <Image source={require('../pic.jpg')} style={{ width: 40, height: 40, borderRadius: 50 }} />
+                    </View>
+                    <View style={{ width: '70%', paddingTop: 25, paddingBottom: 20, paddingLeft: 20 }}>
+                        <Text style={{ fontSize: 20, color: '#ffffff' }}>{this.state.firstName}</Text>
+                    </View>
+                </View>
                 <View style={{ backgroundColor: 'white', paddingBottom: 30 }}>
                 <TouchableOpacity onPress={() => Actions.home()} style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
                     <Image source={require('../home.png')} style={{paddingLeft:10}} />
