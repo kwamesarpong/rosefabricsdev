@@ -5,7 +5,6 @@ import { Card, Icon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux'
 import Header from './Header'
 import SearchBar from './Search'
-import MagicBar from './Magic';
 import Products from './Products'
 import Selection from './Selection'
 import OneSignal from 'react-native-onesignal';
@@ -84,7 +83,6 @@ makeCall = () => {
         imageWrapperStyle={styles.imageWrapper}
         image={{uri: this.state.img}}>
         </Card>
-        <MagicBar />
         <Selection />
         <Products handleSelect={this.handleSelect}/>
      </ScrollView>

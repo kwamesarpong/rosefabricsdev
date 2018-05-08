@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View,Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View,Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Icon } from 'native-base'
 import { Actions } from "react-native-router-flux";
 import { Card, Button } from 'react-native-elements'
@@ -77,31 +77,33 @@ class ProductDetails extends PureComponent {
     render(){
         const { quantity, price, name, desc, img } = this.state
         return (
-            <View style={{backgroundColor: 'white', height: '100%'}}>
-                <Card containerStyle={styles.container} imageStyle={styles.image}
-                    image={{uri: img}}>
-                    <Text style={{marginBottom: 10, textAlign:'center'}}>
-                        {name}
-                    </Text>
-                    <Text style={{marginBottom: 10, textAlign:'center'}}>
-                        Ghc {price}
-                    </Text>
-                    <Text style={{marginBottom: 10, textAlign:'center', color: '#a1a1a1'}}>
-                        {desc}
-                    </Text>
-                    <View style={{flexDirection:'row', justifyContent:'space-around',paddingTop:'10%', paddingBottom:'10%'}}>
-                        <Icon style={{marginLeft: '20%'}} name='ios-remove-circle' onPress={this.onDecrease} />
-                            <Text>Quantity: {quantity}</Text>
-                        <Icon style={{marginRight: '20%'}} name='ios-add-circle' onPress={this.onIncrease} />
-                    </View>
-                    <Button
-                        backgroundColor='red'
-                        onPress={(product) => this.handleCart(this.state)}
-                        buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                        title='ADD TO CART' 
-                    />
-                </Card>
-            </View>
+            <ScrollView>
+                <View style={{backgroundColor: 'white', height: '100%', paddingBottom: 30}}>
+                    <Card containerStyle={styles.container} imageStyle={styles.image}
+                        image={{uri: img}}>
+                        <Text style={{marginBottom: 10, textAlign:'center', fontSize: 20}}>
+                            {name}
+                        </Text>
+                        <Text style={{marginBottom: 10, textAlign:'center', fontSize: 17}}>
+                            Ghc {price}
+                        </Text>
+                        <Text style={{marginBottom: 10, textAlign:'center', color: '#a1a1a1'}}>
+                            {desc}
+                        </Text>
+                        <View style={{flexDirection:'row', justifyContent:'space-around',paddingTop:'10%', paddingBottom:'10%'}}>
+                            <Icon style={{marginLeft: '20%'}} name='ios-remove-circle' onPress={this.onDecrease} />
+                                <Text>Quantity: {quantity}</Text>
+                            <Icon style={{marginRight: '20%'}} name='ios-add-circle' onPress={this.onIncrease} />
+                        </View>
+                        <Button
+                            backgroundColor='red'
+                            onPress={(product) => this.handleCart(this.state)}
+                            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                            title='ADD TO CART' 
+                        />
+                    </Card>
+                </View>
+            </ScrollView>
     
         )
     }
@@ -116,7 +118,7 @@ const styles  = StyleSheet.create({
    },
    image: {
        width: '100%',
-       height: 250
+       height: 400
    }
 })
 export default ProductDetails

@@ -14,9 +14,9 @@ class Selection extends PureComponent{
                 <View style={styles.container}>
                     <TouchableOpacity style={{width: '100%', flex: 1, flexDirection: 'row'}} onPress={() => Actions.dealshome()}>
                         <View style={{width: '60%', alignItems: 'center'}}>
-                            <Image onPress source={require('./deals.jpeg')} style={{width:'80%', height:80}} />
+                            <Image onPress source={require('./deals.jpeg')} style={{width:'80%', height:40}} />
                         </View>
-                        <View style={{width: '40%', paddingTop: 20}}>
+                        <View style={{width: '40%', paddingTop: 10}}>
                             <Text style={{color: 'brown',fontSize: 20}}>Deals</Text>
                         </View>
                     </TouchableOpacity>
@@ -24,9 +24,9 @@ class Selection extends PureComponent{
                 <View style={styles.container}>
                     <TouchableOpacity style={{width: '100%', flex: 1, flexDirection: 'row'}} onPress={() => Actions.mysterybox()}>
                         <View style={{width: '60%', alignItems: 'center'}}>
-                            <Image onPress source={require('./magicbox.jpeg')} style={{width:'80%', height:80}} />
+                            <Image onPress source={require('./magicbox.jpeg')} style={{width:'80%', height:40}} />
                         </View>
-                        <View style={{width: '40%', paddingTop: 20}}>
+                        <View style={{width: '40%', paddingTop: 10}}>
                             <Text style={{color: 'brown',fontSize: 20}}>Mystery Box</Text>
                         </View>
                     </TouchableOpacity>

@@ -55,10 +55,10 @@ class Sidebar extends PureComponent {
         return (
             <ScrollView>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'brown' }}>
-                    <View style={{ width: '30%', paddingTop: 20, paddingBottom: 20, paddingLeft: 20 }}>
-                        <Image source={require('../pic.jpg')} style={{ width: 40, height: 40, borderRadius: 50 }} />
+                    <View style={{ width: '30%', paddingTop: 10, paddingBottom: 10, paddingLeft: 20 }}>
+                        <Image source={require('../pic.jpg')} style={{ width: 30, height: 30, borderRadius: 50 }} />
                     </View>
-                    <View style={{ width: '70%', paddingTop: 25, paddingBottom: 20, paddingLeft: 20 }}>
+                    <View style={{ width: '70%', paddingTop: 10, paddingBottom: 10, paddingLeft: 20 }}>
                         <Text style={{ fontSize: 20, color: '#ffffff' }}>{this.state.firstName}</Text>
                     </View>
                 </View>
