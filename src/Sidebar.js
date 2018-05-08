@@ -63,37 +63,37 @@ class Sidebar extends PureComponent {
                     </View>
                 </View>
                 <View style={{ backgroundColor: 'white', paddingBottom: 30 }}>
-                <TouchableOpacity onPress={() => Actions.home()} style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../home.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity onPress={() => Actions.home()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../home.png')} />
                     <Text style={{paddingLeft:20}}>Home</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => Actions.carts()}  style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../carts.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity onPress={() => Actions.carts()}  style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../carts.png')} />
                     <Text style={{paddingLeft:20}}>Carts</Text>
                 </TouchableOpacity>
                 {this.renderCats()}
-                <TouchableOpacity onPress={() => Actions.morecatshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../category.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity onPress={() => Actions.morecatshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../category.png')} />
                     <Text style={{paddingLeft:20}}>More Categories</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../messages.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../messages.png')} />
                     <Text style={{paddingLeft:20}}>Messages</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../notifications.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../notifications.png')} />
                     <Text style={{paddingLeft:20}}>Notifications</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => Actions.tailorshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../tailor.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity onPress={() => Actions.tailorshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../tailor.png')} />
                     <Text style={{paddingLeft:20}}>Find Designers</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../settings.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../settings.png')} />
                     <Text style={{paddingLeft:20}}>Settings</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.logout} style={{flexDirection:'row', alignItems:'center', paddingTop:20}}>
-                    <Image source={require('../logout.png')} style={{paddingLeft:10}} />
+                <TouchableOpacity onPress={this.logout} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../logout.png')} />
                     <Text style={{paddingLeft:20}}>Logout</Text>
                 </TouchableOpacity>
                 </View>

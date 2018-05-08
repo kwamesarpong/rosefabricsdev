@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios'
 import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import { Card, Icon } from 'react-native-elements';
+import { Button, Icon, Fab } from 'native-base';
+import { Card } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux'
 import Header from './Header'
 import SearchBar from './Search'
@@ -13,7 +14,8 @@ class Home extends PureComponent {
 
   state = {
     img: ' ',
-    loading: true
+    loading: true,
+    active: false
   }
 
   async componentDidMount() {
@@ -26,6 +28,7 @@ class Home extends PureComponent {
       img:sliderArray[0].img_one,
       loading: false
     })
+    
   }
 
   componentWillMount() {
@@ -64,6 +67,10 @@ makeCall = () => {
   Linking.openURL('tel:+233272954084');
 }
 
+liveMessaging = () => {
+  Linking.openURL('https://tawk.to/chat/58c9418441acfb239f8daf04/default/?$_tawk_popout=true').catch(err => console.error('An error occurred', err))
+}
+
  render(){
    console.log(this.props.navigation.state.params.name)
     if(this.state.loading){
@@ -86,14 +93,22 @@ makeCall = () => {
         <Selection />
         <Products handleSelect={this.handleSelect}/>
      </ScrollView>
-      <View style={{alignItems:'flex-end', backgroundColor:'white'}}>
-       <Icon 
-          raised
-          type='ionicon'
-          color='red'
-          name='ios-call'
-          onPress={this.makeCall}
-           />
+      <View style={{alignItems:'flex-end'}}>
+        <Fab
+          active={this.state.active}
+          direction="up"
+          containerStyle={{ }}
+          style={{ backgroundColor: 'brown' }}
+          position="bottomRight"
+          onPress={() => this.setState({ active: !this.state.active })}>
+          <Icon name="ios-add" />
+          <Button style={{ backgroundColor: '#34A34F' }} onPress={this.makeCall}>
+            <Icon name="ios-call" />
+          </Button>
+          <Button style={{ backgroundColor: '#3B5998' }} onPress={this.liveMessaging}>
+            <Icon name="ios-mail" />
+          </Button>
+        </Fab>
        </View>
      </View>
     )
