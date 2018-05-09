@@ -1,34 +1,47 @@
 import React, { PureComponent }  from 'react'
 import { View, Image, StyleSheet, TouchableOpacity, Text} from 'react-native'
-import { Actions } from 'react-native-router-flux';
+import axios from 'axios'
+import { Actions } from 'react-native-router-flux'
 
 
 class Selection extends PureComponent{
 
-    get touch(){
-        alert('Someghin')
-    }
+    state = {
+        dealImg: ' ',
+        mysteryImg: ' '
+      }
+
+    async componentDidMount() {
+    
+        const url = 'http://50.116.8.175/api/v1/service/rosefabrics/db?table=deal_slider'
+        const res = await axios.get(url, {headers: {'Devless-token': 'd463354149e3e51dd115ec140819e0a7'}})
+        let dealImage = res.data.payload.results;
+        let dealArray = dealImage.reverse();
+    
+        const url1 = 'http://50.116.8.175/api/v1/service/rosefabrics/db?table=mystery_box_slider'
+        const res1 = await axios.get(url1, {headers: {'Devless-token': 'd463354149e3e51dd115ec140819e0a7'}})
+        let mysteryImage = res1.data.payload.results;
+        let mysteryArray = mysteryImage.reverse();
+    
+        this.setState({
+          dealImg: dealArray[0].image,
+          mysteryImg: mysteryArray[0].image
+        })
+        
+      }
+
+
     render(){
         return (
             <View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={{width: '100%', flex: 1, flexDirection: 'row'}} onPress={() => Actions.dealshome()}>
-                        <View style={{width: '60%', alignItems: 'center'}}>
-                            <Image onPress source={require('./deals.jpeg')} style={{width:'80%', height:40}} />
-                        </View>
-                        <View style={{width: '40%', paddingTop: 10}}>
-                            <Text style={{color: 'brown',fontSize: 20}}>Deals</Text>
-                        </View>
+                    <TouchableOpacity style={{width: '100%'}} onPress={() => Actions.dealshome()}>
+                        <Image source={{uri: this.state.dealImg}} style={{width:'100%', height: 40}} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={{width: '100%', flex: 1, flexDirection: 'row'}} onPress={() => Actions.mysterybox()}>
-                        <View style={{width: '60%', alignItems: 'center'}}>
-                            <Image onPress source={require('./magicbox.jpeg')} style={{width:'80%', height:40}} />
-                        </View>
-                        <View style={{width: '40%', paddingTop: 10}}>
-                            <Text style={{color: 'brown',fontSize: 20}}>Mystery Box</Text>
-                        </View>
+                    <TouchableOpacity style={{width: '100%'}} onPress={() => Actions.mysterybox()}>
+                        <Image source={{uri: this.state.mysteryImg}} style={{width:'100%', height: 40}} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -40,7 +53,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection:'row',
-        justifyContent: 'space-around',
         paddingTop: 10,
         paddingBottom: 10,
         borderBottomWidth:1,

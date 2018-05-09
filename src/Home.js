@@ -14,6 +14,8 @@ class Home extends PureComponent {
 
   state = {
     img: ' ',
+    dealImg: ' ',
+    mysteryImg: ' ',
     loading: true,
     active: false
   }
@@ -24,8 +26,9 @@ class Home extends PureComponent {
     const res = await axios.get(url, {headers: {'Devless-token': 'd463354149e3e51dd115ec140819e0a7'}})
     let sliderImage = res.data.payload.results;
     let sliderArray = sliderImage.reverse();
+
     this.setState({
-      img:sliderArray[0].img_one,
+      img: sliderArray[0].img_one,
       loading: false
     })
     
