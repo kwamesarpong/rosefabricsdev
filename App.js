@@ -19,8 +19,8 @@ import Checkout from './src/Checkout'
 import requireAuth from './src/HOC'
 import MysteryBox from './src/Mysterybox'
 import DealsHome from './src/DealsHome'
+import NotificationsHome from './src/NotificationsHome'
 import CategoriesHome from './src/CategoriesHome'
-import MoreCatsHome from './src/MoreCatsHome'
 import TailorsHome from './src/TailorsHome'
 
 
@@ -63,8 +63,8 @@ export default class App extends Component<Props> {
                       <Scene key='checkout' component={Checkout} navBar={BackHeader} />
                       <Scene key='mysterybox' component={MysteryBox} title='mysterybox' navBar={BackHeader} />
                       <Scene key='dealshome' component={DealsHome} title='dealshome' navBar={BackHeader} />
+                      <Scene key='notificationshome' component={NotificationsHome} title='notificationshome' navBar={BackHeader} />
                       <Scene key='categorieshome' component={CategoriesHome} title='categorieshome' navBar={BackHeader} />
-                      <Scene key='morecatshome' component={MoreCatsHome} title='morecatshome' navBar={BackHeader} />
                       <Scene key='tailorshome' component={TailorsHome} title='tailorshome' navBar={BackHeader} />
                   </Scene>
               </Router>

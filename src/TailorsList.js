@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fafafa',
     paddingTop: 5,
-    paddingBottom: 5
+    paddingBottom: 5,
+    paddingLeft: 2
   },
   nameItem: {
     width: '50%',

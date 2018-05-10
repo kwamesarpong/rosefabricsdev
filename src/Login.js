@@ -70,7 +70,7 @@ class Login extends Component {
         const {email, password} = this.state
         if(this.state.loading){
           return (<View style={styles.container}>
-                  <ActivityIndicator size="large" color='red' />
+                  <ActivityIndicator size="large" color='brown' />
                  </View>)
         }
         return (

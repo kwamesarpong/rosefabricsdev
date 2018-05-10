@@ -9,7 +9,8 @@ class Sidebar extends PureComponent {
 
     state = {
         data: [],
-        firstName: ''
+        firstName: '',
+        status: false
       }
 
     async componentWillMount(){
@@ -29,6 +30,12 @@ class Sidebar extends PureComponent {
       handleClick = async(data) => {
         await AsyncStorage.setItem('cat', JSON.stringify(data))
         Actions.categorieshome();
+      }
+
+      toggleStatus = () => {
+          this.setState({
+            status: !this.state.status
+          })
       }
 
       renderCats = () => {
@@ -71,16 +78,23 @@ class Sidebar extends PureComponent {
                     <Image source={require('../carts.png')} />
                     <Text style={{paddingLeft:20}}>Carts</Text>
                 </TouchableOpacity>
-                {this.renderCats()}
-                <TouchableOpacity onPress={() => Actions.morecatshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                <TouchableOpacity onPress={this.toggleStatus} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../category.png')} />
-                    <Text style={{paddingLeft:20}}>More Categories</Text>
+                    <Text style={{paddingLeft:20}}>Categories</Text>
+                    <Icon name='ios-arrow-down' style={{fontSize: 15, color: 'brown', paddingLeft: 50}} />
                 </TouchableOpacity>
+                {
+                    this.state.status ? (
+                        this.renderCats()
+                    ) : (
+                        null
+                    )
+                }
                 <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../messages.png')} />
                     <Text style={{paddingLeft:20}}>Messages</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                <TouchableOpacity onPress={() => Actions.notificationshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../notifications.png')} />
                     <Text style={{paddingLeft:20}}>Notifications</Text>
                 </TouchableOpacity>

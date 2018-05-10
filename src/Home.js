@@ -78,7 +78,7 @@ liveMessaging = () => {
    console.log(this.props.navigation.state.params.name)
     if(this.state.loading){
       return (<View style={{alignItems: 'center', paddingTop: '50%', backgroundColor: '#ffffff', height: '100%'}}>
-                <ActivityIndicator size="large" color='red' />
+                <ActivityIndicator size="large" color='brown' />
               </View>)
     }
     return (

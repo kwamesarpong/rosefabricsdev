@@ -4,26 +4,21 @@ import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions,
 import { Card, Icon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux'
 import Header from './Header'
-import MoreCats from './MoreCats'
+import Notifications from './Notifications'
 
-class MoreCatsHome extends PureComponent {
+class NotificationsHome extends PureComponent {
 
   state = {
     img: ' ',
   }
 
 
-handleSelect = (data) => {
-  Actions.product({data})
-}
-
-
  render(){
     return (
       <View style={{flex:1, backgroundColor:'white'}}>
         <ScrollView>
-            <Text style={{paddingTop: 10, paddingBottom: 10, color: 'brown', fontSize: 20, alignSelf: 'center'}}>More</Text>
-            <MoreCats handleSelect={this.handleSelect}/>
+            <Text style={{paddingTop: 10, paddingBottom: 10, color: 'brown', fontSize: 20, alignSelf: 'center'}}>Notifications</Text>
+            <Notifications />
         </ScrollView>
      </View>
     )
@@ -45,4 +40,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default MoreCatsHome
+export default NotificationsHome

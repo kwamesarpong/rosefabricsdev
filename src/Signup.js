@@ -77,7 +77,7 @@ class Signup extends Component {
     render(){
         if(this.state.loading){
             return (<View style={styles.container}>
-                    <ActivityIndicator size="large" color='red' />
+                    <ActivityIndicator size="large" color='brown' />
                    </View>)
           }
         return (
