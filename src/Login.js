@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Alert, TouchableOpacity, ActivityIndicator, AsyncStorage } from 'react-native';
+import { View, StyleSheet, Text, Alert, TouchableOpacity, ActivityIndicator, AsyncStorage, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios'
 import Logo from './Logo'
@@ -74,7 +74,8 @@ class Login extends Component {
                  </View>)
         }
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container} contentContainerStyle={{flexGrow : 1, justifyContent : 'center', alignItems: 'center'}}>
+                <KeyboardAvoidingView behavior="padding">
                 <View style={{paddingTop: 20, paddingBottom: 30}}></View>
                 <Form type='Login' fields={this.state} onChange={this.onChange} onSubmit={this.onSubmit}/>
                 <View style={styles.signupTextCont}>
@@ -83,7 +84,8 @@ class Login extends Component {
                         <Text style={styles.signupButton}> Signup</Text>
                     </TouchableOpacity>
 				</View>
-            </View>
+                </KeyboardAvoidingView>
+            </ScrollView>
         )
     }
 }
@@ -92,9 +94,7 @@ const styles = StyleSheet.create({
     container: {
         paddingTop:'20%',
         flex: 1,
-        backgroundColor: '#ffffff',
-        alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: '#ffffff'
     },
     signupTextCont : {
       flexGrow: 1,

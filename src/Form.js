@@ -3,10 +3,11 @@ import { View, StyleSheet, Text, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import Logo from './Logo'
 
 const Form = ({type, fields, onChange, onSubmit}) => (
-       <KeyboardAvoidingView
-            behavior="position"
-            style={styles.container}
-         >
+    //    <KeyboardAvoidingView
+    //         behavior="position"
+    //         style={styles.container}
+    //      >
+        <View>
         <Logo />
         {type === 'Signup' && (
           <View>
@@ -55,8 +56,9 @@ const Form = ({type, fields, onChange, onSubmit}) => (
             underlineColorAndroid='transparent' />
           <TouchableOpacity disabled={fields.password === '' && fields.email=== ''} onPress={onSubmit} style={styles.button}>
              <Text style={styles.buttonText}>{type}</Text>
-           </TouchableOpacity>   
-        </KeyboardAvoidingView>
+           </TouchableOpacity>
+        </View>
+    /* </KeyboardAvoidingView> */
 )
 
 const styles = StyleSheet.create({
