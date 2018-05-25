@@ -55,7 +55,7 @@ export default class App extends Component<Props> {
                   <Scene key='root' navBar={Header} >
                       <Scene key='login' component={Login} title='Login' initial hideNavBar/>
                       <Scene key='signup' component={Signup} title='Signup'  hideNavBar/>
-                      <Drawer key="drawer" contentComponent={Sidebar} hideDrawerButton drawerWidth={230} >
+                      <Drawer key="drawer" contentComponent={Sidebar} hideDrawerButton drawerWidth={300} >
                           <Scene key='home' component={requireAuth(Home)} title='home'hideNavBar />
                           <Scene key='carts' component={requireAuth(Cart)} title='cart' hideNavBar />
                       </Drawer>

@@ -65,23 +65,23 @@ class Sidebar extends PureComponent {
                     <View style={{ width: '30%', paddingTop: 10, paddingBottom: 10, paddingLeft: 20 }}>
                         <Image source={require('../pic.jpg')} style={{ width: 30, height: 30, borderRadius: 50 }} />
                     </View>
-                    <View style={{ width: '70%', paddingTop: 10, paddingBottom: 10, paddingLeft: 20 }}>
+                    <View style={{ width: '70%', paddingTop: 10, paddingBottom: 10 }}>
                         <Text style={{ fontSize: 20, color: '#ffffff' }}>{this.state.firstName}</Text>
                     </View>
                 </View>
                 <View style={{ backgroundColor: 'white', paddingBottom: 30 }}>
                 <TouchableOpacity onPress={() => Actions.home()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../home.png')} />
-                    <Text style={{paddingLeft:20}}>Home</Text>
+                    <Text style={{paddingLeft:40}}>Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Actions.carts()}  style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../carts.png')} />
-                    <Text style={{paddingLeft:20}}>Carts</Text>
+                    <Text style={{paddingLeft:40}}>Carts</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.toggleStatus} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../category.png')} />
-                    <Text style={{paddingLeft:20}}>Categories</Text>
-                    <Icon name='ios-arrow-down' style={{fontSize: 15, color: 'brown', paddingLeft: 50}} />
+                    <Text style={{paddingLeft:40}}>Categories</Text>
+                    <Icon name='ios-arrow-down' style={{fontSize: 15, color: 'brown', paddingLeft: 80}} />
                 </TouchableOpacity>
                 {
                     this.state.status ? (
@@ -90,25 +90,21 @@ class Sidebar extends PureComponent {
                         null
                     )
                 }
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
-                    <Image source={require('../messages.png')} />
-                    <Text style={{paddingLeft:20}}>Messages</Text>
-                </TouchableOpacity>
                 <TouchableOpacity onPress={() => Actions.notificationshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../notifications.png')} />
-                    <Text style={{paddingLeft:20}}>Notifications</Text>
+                    <Text style={{paddingLeft:40}}>Notifications</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => Actions.notificationshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                    <Image source={require('../carts.png')} />
+                    <Text style={{paddingLeft:40}}>Transaction History</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Actions.tailorshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../tailor.png')} />
-                    <Text style={{paddingLeft:20}}>Find Designers</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
-                    <Image source={require('../settings.png')} />
-                    <Text style={{paddingLeft:20}}>Settings</Text>
+                    <Text style={{paddingLeft:40}}>Find Designers</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.logout} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../logout.png')} />
-                    <Text style={{paddingLeft:20}}>Logout</Text>
+                    <Text style={{paddingLeft:40}}>Logout</Text>
                 </TouchableOpacity>
                 </View>
             </ScrollView>

@@ -14,8 +14,9 @@ class Notifications extends Component {
     const url = 'http://50.116.8.175/api/v1/service/rosefabrics/db?table=push_notifications'
     const res = await axios.get(url, {headers: {'Devless-token': 'd463354149e3e51dd115ec140819e0a7'}})
     const resReversed = res.data.payload.results.reverse();
+    const resSliced = resReversed.slice(0, 5)
     this.setState({
-      data:resReversed,
+      data:resSliced,
       loading: false
     })
   }
