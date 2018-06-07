@@ -26,32 +26,10 @@ import TransactionsHome from './src/TransactionsHome'
 
 
 export default class App extends Component<Props> {
-    /* state = {
-        loading: true
-    } */
-
-    /* async componentDidMount(){
-        if(await AsyncStorage.getItem('token')){
-            this.setState({ loading: false })
-            Actions.home()
-        }
-        else {
-            this.setState({ loading: false })
-            Actions.login()
-        }
-      } */
 
 
   render() {
-      /* if(this.state.loading){
-          return (
-              <View style={{flex: 1}}>
-                <View style={{flex: 1}}>
-                    <Image source={require('./splash.png')} style={{width:'100%', height:'100%'}} />
-                </View>
-              </View>
-          )
-      } */
+      
     return (
               <Router>
                   <Scene key='root' navBar={Header} >
