@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios'
-import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
+import { View, Alert, ScrollView, Linking, AsyncStorage, StyleSheet, Dimensions, ActivityIndicator, Image } from 'react-native';
 import { Button, Icon, Fab } from 'native-base';
 import { Card } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux'
@@ -34,7 +34,16 @@ class Home extends PureComponent {
     
   }
 
-  componentWillMount() {
+  async componentWillMount() {
+
+          if(await AsyncStorage.getItem('token')){
+              this.setState({ loading: false })
+          }
+          else {
+              this.setState({ loading: false })
+              Actions.login()
+          }
+
           OneSignal.addEventListener('received', this.onReceived);
           OneSignal.addEventListener('opened', this.onOpened);
           OneSignal.addEventListener('ids', this.onIds);
@@ -76,10 +85,19 @@ liveMessaging = () => {
 
  render(){
    console.log(this.props.navigation.state.params.name)
-    if(this.state.loading){
+    /* if(this.state.loading){
       return (<View style={{alignItems: 'center', paddingTop: '50%', backgroundColor: '#ffffff', height: '100%'}}>
                 <ActivityIndicator size="large" color='brown' />
               </View>)
+    } */
+    if(this.state.loading){
+      return (
+          <View style={{flex: 1}}>
+            <View style={{flex: 1}}>
+                <Image source={require('../splash.png')} style={{width:'100%', height:'100%'}} />
+            </View>
+          </View>
+      )
     }
     return (
       <View style={{flex:1, backgroundColor:'white'}}>

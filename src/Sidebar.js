@@ -94,7 +94,7 @@ class Sidebar extends PureComponent {
                     <Image source={require('../notifications.png')} />
                     <Text style={{paddingLeft:40}}>Notifications</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => Actions.notificationshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
+                <TouchableOpacity onPress={() => Actions.transactionshome()} style={{flexDirection:'row', alignItems:'center', paddingTop:20, paddingLeft:20}}>
                     <Image source={require('../carts.png')} />
                     <Text style={{paddingLeft:40}}>Transaction History</Text>
                 </TouchableOpacity>
